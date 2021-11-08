@@ -1,0 +1,24 @@
+name: Deploy To S3 Static Site
+on: 
+  push:
+    branches:
+      - 'master'
+env:
+  BUCKET_NAME: <BUCKET_NAME>
+  CF_DISTRO_ID: <DISTRO ID>
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.repository }}
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync . s3://$BUCKET_NAME --delete --exclude ".git/*" --exclude ".github/*" --exclude ".gitignore"
+      - name: Invalidate Files From Cloudfront Edge Locations
+        run: aws cloudfront create-invalidation --distribution-id $CF_DISTRO_ID --paths "/*"

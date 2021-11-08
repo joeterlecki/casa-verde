@@ -1,0 +1,26 @@
+.brand-font {
+  font-family: 'Graduate', cursive;
+}
+
+.js-icon {
+  color: #f0db4f;
+}
+
+.html-icon {
+  color: #e34f26;
+}
+
+.bs-icon {
+  color: #583E80;
+}
+
+.css-icon {
+  color: #2760E5;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}

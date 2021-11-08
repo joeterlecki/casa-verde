@@ -1,0 +1,45 @@
+{
+  "name": "soft-ui-design-system-pro",
+  "version": "1.0.8",
+  "description": "Premium Design System for Bootstrap 5",
+  "main": "presentation.html",
+  "directories": {
+    "example": "root"
+  },
+  "scripts": {
+    "open-app": "gulp open-app",
+    "start": "npm run open-app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp-watch"
+  },
+  "keywords": [
+    "soft ui design system pro",
+    "bootstrap 5",
+    "design system",
+    "creative tim",
+    "html kit",
+    "html css kit",
+    "web kit",
+    "premium",
+    "premium bootstrap kit",
+    "css3 kit",
+    "bootstrap design system",
+    "frontend",
+    "responsive bootstrap kit"
+  ],
+  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "license": "Premium",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/ct-soft-ui-design-system-pro/issues"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-install": "^1.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-open": "^3.0.1"
+  },
+  "homepage": "https://creative-tim.com/product/soft-ui-design-system-pro"
+}
