@@ -37,28 +37,28 @@ function calculatePaymentData(termMonths, monthlyPayment, totalLoanAmount, inter
 
   // document.getElementById("tableCard").classList.remove("d-none");
   for (let currentMonth = 1; currentMonth <= termMonths; currentMonth++) {
-    remainingBalance = remainingBalance - monthlyPayment;
-
-    if (remainingBalance - monthlyPayment < 0) {
-      monthlyPayment = Math.abs(remainingBalance, 0);
-    }
-
     interestPayment = calculateInterestPayment(remainingBalance, interestRate);
     principalPayment = calculatePrincipalPayment(monthlyPayment, interestPayment);
-    totalInterest += interestPayment;
+    totalInterest = (totalInterest + interestPayment);
     totalCost = totalInterest + totalLoanAmount
+
+    remainingBalance = remainingBalance - principalPayment;
 
     let payment = {
       month: currentMonth,
-      payment: monthlyPayment,
-      principal: principalPayment,
-      interest: interestPayment,
-      totalInterest: totalInterest,
-      balance: remainingBalance
+      payment: monthlyPayment.toFixed(2),
+      principal: principalPayment.toFixed(2),
+      interest: interestPayment.toFixed(2),
+      totalInterest: totalInterest.toFixed(2),
+      balance: remainingBalance.toFixed(2)
     };
 
     paymentData.push(payment);
   }
+
+  document.getElementById("totalPrincipal").innerHTML = `&dollar;${totalLoanAmount.toFixed(2)}`;
+  document.getElementById("totalInterest").innerHTML = `&dollar;${totalInterest.toFixed(2)}`;
+  document.getElementById("totalCost").innerHTML = `&dollar;${totalCost.toFixed(2)}`;
   return paymentData;
 }
 
@@ -69,12 +69,6 @@ function displayLoanInformation(totalLoanAmount, paymentData) {
   tableBody.innerHTML = "";
 
   document.getElementById("tableCard").classList.remove("d-none");
-  paymentData.forEach(payment => {
-    // for (let key in payment) {
-
-
-    // }
-  });
 
   for (let data = 0; data < paymentData.length; data++) {
     let tableRow = document.importNode(tableTemplate.content, true);

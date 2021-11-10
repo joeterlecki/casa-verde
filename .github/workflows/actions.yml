@@ -4,8 +4,8 @@ on:
     branches:
       - 'master'
 env:
-  BUCKET_NAME: <BUCKET_NAME>
-  CF_DISTRO_ID: <DISTRO ID>
+  BUCKET_NAME: casaverde.joeterlecki.io
+  CF_DISTRO_ID: E37ZNIB3108521
 jobs:
   deploy: 
     runs-on: ubuntu-latest
